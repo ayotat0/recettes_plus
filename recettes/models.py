@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 
 class Categorie(models.Model):
     nom = models.CharField(max_length=100)
-
     def __str__(self):
         return self.nom
 
@@ -17,6 +16,5 @@ class Recette(models.Model):
     date_creation = models.DateTimeField(auto_now_add=True)
     auteur = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recettes')
     categorie = models.ForeignKey(Categorie, on_delete=models.SET_NULL, null=True, blank=True, related_name='recettes')
-
     def __str__(self):
         return self.titre

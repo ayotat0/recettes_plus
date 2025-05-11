@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ action }} une recette</title>
+</head>
+<body>
+    <h1>{{ action }} une recette</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{{ action }}</button>
+    </form>
+    <p><a href="{% url 'liste_recettes' %}">Retour à la liste</a></p>
+</body>
+</html>

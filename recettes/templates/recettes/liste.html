@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes Recettes</title>
+</head>
+<body>
+    <h1>Mes Recettes</h1>
+    {% if recettes %}
+        <ul>
+        {% for recette in recettes %}
+            <li>
+                <strong>{{ recette.titre }}</strong> - {{ recette.difficulte }}
+                <a href="{% url 'modifier_recette' recette.pk %}">Modifier</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucune recette enregistrée.</p>
+    {% endif %}
+    <p><a href="{% url 'ajouter_recette' %}">Ajouter une recette</a></p>
+    <p><a href="{% url 'deconnexion' %}">Se déconnecter</a></p>
+</body>
+</html>
